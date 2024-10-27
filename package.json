@@ -1,0 +1,28 @@
+{
+  "name": "itprofit-simple-form",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "npx webpack --mode production",
+    "dev": "npx webpack-dev-server --mode development",
+    "server": "node server/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.6.3",
+    "sass": "^1.80.4",
+    "sass-loader": "^16.0.2",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.1.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "css-loader": "^7.1.2",
+    "express": "^4.21.1",
+    "style-loader": "^4.0.0"
+  }
+}
