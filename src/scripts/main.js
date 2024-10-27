@@ -1,59 +1,29 @@
 import {addFormContent} from "../utils/addFormContent";
 import {formData} from "../data/formData";
+import {createAndAppendElement} from "../utils/createAndAppendElement";
 
-const container = document.createElement('div');
-container.classList.add('container');
+const container = createAndAppendElement('div', document.body, {classNames: 'container'});
+const header = createAndAppendElement('header', container, {classNames: 'header'});
 
-// header
-const header = document.createElement('header');
-header.classList.add('header');
+const buttonOpenModal = createAndAppendElement('button', header, {
+    classNames: ['button', 'open-modal'],
+    id: 'open-modal',
+    textContent: 'Open modal'
+});
 
-const buttonOpenModal = document.createElement('button');
-buttonOpenModal.classList.add('button', 'open-modal');
-buttonOpenModal.id = 'open-modal'
-buttonOpenModal.textContent = 'Open modal'
+const main = createAndAppendElement('main', container, {classNames: 'main'});
+const wrapper = createAndAppendElement('div', main, {classNames: 'wrapper-form'});
 
-header.append(buttonOpenModal)
-
-// main
-const main = document.createElement('main');
-main.classList.add('main');
-
-//login form
-const wrapper = document.createElement('div');
-wrapper.classList.add('wrapper-form');
-
-const title = document.createElement('h2');
-title.classList.add('form-title');
-title.textContent = 'Sign Up'
-wrapper.append(title)
-
-const form = document.createElement('form');
-form.classList.add('form');
+const title = createAndAppendElement('h2', wrapper, {classNames: 'form-title', textContent: 'Sign Up'});
+const form = createAndAppendElement('form', wrapper, {classNames: 'form', id: 'form'});
 formData.forEach((item) => addFormContent(item, form))
 
-const buttonSubmit = document.createElement('button');
-buttonSubmit.classList.add('button', 'submit');
-buttonSubmit.id = 'submit'
-buttonSubmit.textContent = 'Submit'
-form.append(buttonSubmit)
+const buttonSubmit = createAndAppendElement('button', form, {
+    classNames: ['button', 'submit'],
+    id: 'submit',
+    textContent: 'Submit'
+});
 
-wrapper.append(form)
-main.append(wrapper)
-
-
-//footer
-const footer = document.createElement('footer');
-footer.classList.add('footer');
-
-const gitHubInfo = document.createElement('p');
-gitHubInfo.classList.add('info');
+const footer = createAndAppendElement('footer', container, {classNames: 'footer'});
+const gitHubInfo = createAndAppendElement('p', footer, {classNames: 'info'});
 gitHubInfo.innerHTML = `2024 | <a href="https://github.com/Verminas" target="_blank" class="link">GitHub</a>`;
-
-footer.append(gitHubInfo)
-
-// DOM
-document.body.append(container);
-container.append(header);
-container.append(main);
-container.append(footer);
