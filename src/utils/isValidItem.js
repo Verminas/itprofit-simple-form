@@ -1,3 +1,3 @@
 export function isValidItem(value) {
-    return value && value.trim().length > 0;
+    return !!value && (value.trim().length > 0);
 }

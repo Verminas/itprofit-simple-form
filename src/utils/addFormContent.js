@@ -28,8 +28,8 @@ export function addFormContent(obj, form) {
     label.append(item)
 
     // for validation
-    item.onchange = () => validateItem(label)
-    item.oninput = () => deleteErrorItem(label)
+    item.addEventListener('change', () => validateItem(label))
+    item.addEventListener('input', () => deleteErrorItem(label))
 
     form.append(label)
 }

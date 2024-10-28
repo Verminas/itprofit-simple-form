@@ -1,8 +1,8 @@
 export const apiForm = {
-    async sendForm(form){
+    async sendForm(formData){
         const res = await fetch('http://localhost:9090/api/registration', {
             method: 'POST',
-            body: new FormData(form),
+            body: formData,
         });
 
         const data = await res.json();

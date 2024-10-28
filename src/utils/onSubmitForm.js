@@ -6,7 +6,7 @@ export async function onSubmitForm(e) {
     const form = e.currentTarget
     const formLabels = Array.from(e.currentTarget.querySelectorAll('.form-label'))
     const resultValidation = formLabels.map(label => validateItem(label))
-    if (resultValidation.every(item => !!item)) {
+    if (resultValidation.every(item => item)) {
         await submitFormData(form)
     }
 }

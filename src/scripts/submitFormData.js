@@ -3,7 +3,7 @@ import {apiForm} from "./api";
 
 export async function submitFormData(form) {
     try {
-        const data = await apiForm.sendForm(form)
+        const data = await apiForm.sendForm(new FormData(form))
         if (data.status === 'success') {
             console.log(data.message);
             createResponseMessage(data.message)
