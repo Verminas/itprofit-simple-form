@@ -18,7 +18,7 @@ export function createResponseMessage(message, isError = false) {
     } else {
         timerId = setTimeout(() => {
             wrapper.remove()
-        }, 4000)
+        }, 6000)
     }
 
 }

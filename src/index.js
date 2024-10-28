@@ -5,3 +5,5 @@ import './scripts/modal'
 
 import './styles/main.sass'
 import './styles/modal.sass'
+import './styles/form.sass'
+import './styles/responseMessage.sass'
