@@ -122,6 +122,8 @@ body
   width: 100%
   position: relative
   height: 100px
+  &:last-of-type
+    height: 130px
 
 .form-span
   display: inline-block
@@ -164,9 +166,13 @@ body
   &::first-letter
     text-transform: uppercase
 
-.textarea
+#form-error-message
+  bottom: 0
+
+.message
   resize: none
   height: 80px
+  font-family: inherit
 
 .form-title
   align-self: center
