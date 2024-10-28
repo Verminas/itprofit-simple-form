@@ -1,3 +1,6 @@
+import {validateItem} from "../scripts/validate";
+import {deleteErrorItem} from "./deleteErrorItem";
+
 /**
  * Generates form content based on the provided object and appends it to the specified form element.
  *
@@ -5,6 +8,7 @@
  * type, element (as HTML element), name (as className and id)
  * @param {HTMLElement} form - The form element to which the generated content will be appended.
  */
+
 
 export function addFormContent(obj, form) {
     const isCorrectType = obj.label && obj.placeholder && obj.type && obj.name && obj.element
@@ -23,6 +27,12 @@ export function addFormContent(obj, form) {
         item.id = obj.name
 
         label.append(item)
+
+        // for validation
+        item.onchange = () => validateItem(label)
+        //
+        item.oninput = () => deleteErrorItem(label)
+
         form.append(label)
     }
 }

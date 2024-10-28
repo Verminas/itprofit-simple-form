@@ -1,6 +1,7 @@
 import {addFormContent} from "../utils/addFormContent";
 import {formData} from "../data/formData";
 import {createAndAppendElement} from "../utils/createAndAppendElement";
+import {onSubmitForm} from "../utils/onSubmitForm";
 
 const container = createAndAppendElement('div', document.body, {classNames: 'container'});
 const header = createAndAppendElement('header', container, {classNames: 'header'});
@@ -16,6 +17,7 @@ const wrapper = createAndAppendElement('div', main, {classNames: 'wrapper-form'}
 
 const title = createAndAppendElement('h2', wrapper, {classNames: 'form-title', textContent: 'Sign Up'});
 const form = createAndAppendElement('form', wrapper, {classNames: 'form', id: 'form'});
+form.onsubmit = onSubmitForm
 formData.forEach((item) => addFormContent(item, form))
 
 const buttonSubmit = createAndAppendElement('button', form, {
