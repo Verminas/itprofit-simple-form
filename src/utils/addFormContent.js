@@ -11,28 +11,25 @@ import {deleteErrorItem} from "./deleteErrorItem";
 
 
 export function addFormContent(obj, form) {
-    const isCorrectType = obj.label && obj.placeholder && obj.type && obj.name && obj.element
-    if (isCorrectType) {
-        const label = document.createElement('label');
-        label.classList.add('form-label')
-        const span = document.createElement('span');
-        span.classList.add('form-span')
-        span.textContent = obj.label;
-        label.append(span)
+    const label = document.createElement('label');
+    label.classList.add('form-label')
+    const span = document.createElement('span');
+    span.classList.add('form-span')
+    span.textContent = obj.label;
+    label.append(span)
 
-        const item = document.createElement(obj.element);
-        obj.element === 'input' && (item.type = obj.type)
-        item.placeholder = obj.placeholder;
-        item.classList.add('form-item', obj.name)
-        item.id = obj.name
+    const item = document.createElement(obj.element);
+    obj.element === 'input' && (item.type = obj.type)
+    item.placeholder = obj.placeholder;
+    item.classList.add('form-item', obj.name)
+    item.id = obj.name
+    item.autocomplete = 'off'
 
-        label.append(item)
+    label.append(item)
 
-        // for validation
-        item.onchange = () => validateItem(label)
-        //
-        item.oninput = () => deleteErrorItem(label)
+    // for validation
+    item.onchange = () => validateItem(label)
+    item.oninput = () => deleteErrorItem(label)
 
-        form.append(label)
-    }
+    form.append(label)
 }

@@ -13,18 +13,19 @@ export const formData = [
         element: 'input',
         name: 'email'
     },
+    // Enter your telephone number
     {
-        label: 'Telephone number: ',
-        placeholder: 'Enter your telephone number',
+        label: 'Phone number: ',
+        placeholder: '+375 (99) 999-99-99',
         type: 'text',
         element: 'input',
-        name: 'telephone'
+        name: 'phone'
     },
     {
         label: 'Message: ',
         placeholder: 'Enter your message',
         type: 'textarea',
         element: 'textarea',
-        name: 'textarea'
+        name: 'message'
     },
 ]

@@ -7,6 +7,22 @@ $text-button: white
 $text-error: red
 $transition: all .2s ease-in
 $background-color: rgba(255, 255, 255, 0.7)
+$background-success: rgb(115, 163, 115)
+$background-error: rgba(220, 20, 60, 0.5)
+
+@keyframes responseMessage
+  0%
+    right: -80px
+    visibility: hidden
+    opacity: 0
+  50%
+    right: 30px
+    opacity: 1
+    visibility: visible
+  100%
+    right: -150px
+    visibility: hidden
+    opacity: 0
 
 *
   box-sizing: border-box
@@ -153,3 +169,30 @@ body
 .submit
   align-self: center
   margin-top: 10px
+
+// message wrapper
+
+.message-wrapper
+  min-width: 120px
+  max-width: 300px
+  border-radius: 15px
+  background-color: $background-success
+  display: flex
+  justify-content: center
+  align-items: center
+  color: $text-button
+
+  min-height: 50px
+  padding: 10px 15px
+  font-size: 18px
+  font-weight: 700
+
+  position: fixed
+  z-index: 10
+  top: 100px
+  right: -80px
+  opacity: 0
+  animation: responseMessage 4s ease-in-out
+
+  &.error-message
+    background-color: $background-error
