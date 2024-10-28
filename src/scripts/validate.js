@@ -10,8 +10,15 @@ export function validateItem(label) {
 
     if(!isValid) {
         const textContent = isEmail ? 'Email is invalid' : `${formItem.id} is required`
+        const currentErrors = Array.from(label.querySelectorAll('.form-error'))
+        if(currentErrors.length) {
+            currentErrors.forEach((error) => error.remove())
+        }
         const error = createAndAppendElement('span', label, {id: `form-error-${formItem.id}`, classNames: 'form-error', textContent})
-        formItem.classList.add('invalid')
+        setTimeout(() => {
+            error.classList.add('show-error')
+            formItem.classList.add('invalid')
+        }, 150)
     }
 
     return isValid
