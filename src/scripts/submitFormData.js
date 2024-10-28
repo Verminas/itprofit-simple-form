@@ -25,6 +25,7 @@ export async function submitFormData(form) {
             }
         } else {
             console.error(err)
+            createResponseMessage('Network Error', true)
         }
     }
 }
